@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./nytimesearch.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>New York Times Search</h1>
+      <div class="card">
+        <div class="card-header">
+          Search Parameters
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="searchTerm">Search Term</label>
+              <input
+                type="text"
+                id="searchTerm"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="numberOfRecords">Number of records to retrieve</label>
+              <select id="numberOfRecords" class="form-control" required>
+                <option>1</option>
+                <option>5</option>
+                <option>10</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="startYear">Start Year (optional)</label>
+              <input type="text" id="startYear" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="endYear">End Year (optional)</label>
+              <input type="text" id="endYear" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-light" id="search">
+              Search
+            </button>
+            <button class="btn btn-light" id="clear">Clear</button>
+          </form>
+        </div>
+      </div>
+      <div class="card mt-5">
+        <div class="card-header">
+          Top Articles
+        </div>
+        <div class="card-body" id="results"></div>
+      </div>
+    </div>
+  </body>
+</html>
