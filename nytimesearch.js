@@ -53,18 +53,21 @@ $(document).ready(function() {
 
         cardBody.html(`
         <div class="font-weight font-italic">${author}</div>
+        <div>${moment(pubDate).format("lll")}</div>
         <div class="font-weight-light font-italic">${section}</div>
-        <div>${moment(pubDate).format("lll")}</div>`);
+        `);
 
         articleURL = $("<a>")
           .attr("href", webUrl)
-          .text(webUrl);
+          .text(`${webUrl}`);
+
+          articleURL.addClass("card-header text-dark font-weight-bold");
+          // articleURL.innerHTML = $("<h4>").text(headline)
         cardBody.append(articleURL);
 
         cardHeader = $("<h4>").text(headline);
-        cardHeader.addClass("card-header");
 
-        card.append(cardHeader);
+        card.append(articleURL);
         card.append(cardBody);
         $("#results").append(card);
 
