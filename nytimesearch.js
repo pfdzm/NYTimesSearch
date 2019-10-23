@@ -14,7 +14,7 @@ $(document).ready(function() {
       "https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=" +
       searchTermVal +
       "&api-key=" +
-      apiKey;
+      apiKey + startYearVal + endYearVal;
 
     $.ajax({
       url: queryURL,
