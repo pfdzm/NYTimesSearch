@@ -85,6 +85,7 @@ $(document).ready(function() {
 
   $("form").on("submit", function(event) {
     event.preventDefault();
+    $("#results").html("");
     searchTermVal = searchTerm.val();
 
     if (startYear.val() !== "") {
