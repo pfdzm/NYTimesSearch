@@ -10,29 +10,20 @@ $(document).ready(function() {
 
   var getData = function() {
     var apiKey = "FguIaigSIbRRfYJYsaFNvMMoIo021Rlz";
-    var queryURL;
-    if (startYearVal == "" && endYearVal == "") {
-      queryURL =
-        "https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=" +
-        searchTermVal +
-        "&api-key=" +
-        apiKey;
-    } else {
-      queryURL =
-        "https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=" +
-        searchTermVal +
-        "&api-key=" +
-        apiKey +
-        "&begin_date=" +
-        startYearVal +
-        "&end_date=" +
-        endYearVal;
-    }
+    var queryURL =
+      "https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=" +
+      searchTermVal +
+      "&api-key=" +
+      apiKey;
+
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-      console.log({query: {searchTermVal, apiKey, startYearVal, endYearVal}, response});
+      console.log({
+        query: { queryURL, searchTermVal, apiKey, startYearVal, endYearVal },
+        response
+      });
       var arrayResults = response.response.docs;
 
       for (let index = 1; index < arrayResults.length; index++) {
@@ -61,12 +52,12 @@ $(document).ready(function() {
           .attr("href", webUrl)
           .text(`${webUrl}`);
 
-          // articleURL.addClass("card-header text-dark font-weight-bold");
-          // articleURL.innerHTML = $("<h4>").text(headline)
+        // articleURL.addClass("card-header text-dark font-weight-bold");
+        // articleURL.innerHTML = $("<h4>").text(headline)
         cardBody.append(articleURL);
 
         cardHeader = $("<h4>").text(headline);
-        cardHeader.addClass('card-header')
+        cardHeader.addClass("card-header");
 
         card.append(cardHeader);
         card.append(cardBody);
@@ -93,13 +84,13 @@ $(document).ready(function() {
     searchTermVal = searchTerm.val().trim();
 
     if (startYear.val() !== "") {
-      startYearVal = startYear.val().trim() + "0101";
+      startYearVal = "&begin_date=" + startYear.val().trim() + "0101";
     } else {
       startYearVal = "";
     }
 
     if (endYear.val() !== "") {
-      endYearVal = endYear.val().trim() + "1231";
+      endYearVal = "&end_date=" + endYear.val().trim() + "1231";
     } else {
       endYearVal = "";
     }
