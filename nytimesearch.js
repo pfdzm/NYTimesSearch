@@ -32,7 +32,7 @@ $(document).ready(function() {
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-      console.log(response);
+      console.log({query: {searchTermVal, apiKey, startYearVal, endYearVal}, response});
       var arrayResults = response.response.docs;
 
       for (let index = 1; index < arrayResults.length; index++) {
