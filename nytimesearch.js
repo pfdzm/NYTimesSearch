@@ -86,16 +86,16 @@ $(document).ready(function() {
   $("form").on("submit", function(event) {
     event.preventDefault();
     $("#results").html("");
-    searchTermVal = searchTerm.val();
+    searchTermVal = searchTerm.val().trim();
 
     if (startYear.val() !== "") {
-      startYearVal = startYear.val() + "0101";
+      startYearVal = startYear.val().trim() + "0101";
     } else {
       startYearVal = "";
     }
 
     if (endYear.val() !== "") {
-      endYearVal = endYear.val() + "1231";
+      endYearVal = endYear.val().trim() + "1231";
     } else {
       endYearVal = "";
     }
